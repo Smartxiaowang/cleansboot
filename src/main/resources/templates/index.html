@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>收货地址</title>
+</head>
+<body>
+</body>
+<link rel="stylesheet" href="../static/layui/css/layui.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<title>收货地址</title>
+<header class="mt-header" data-spm="a210b">
+</header>
+<body>
+<style>
+    .head {
+        display: block;
+        position: relative;
+    }
+
+    .box {
+        /*border: 3px solid yellowgreen;*/
+        height: 1000px;
+        position: relative; /* 设置父元素为相对定位 */
+    }
+
+    .box1 {
+        width: 800px; /* 子元素的定宽 */
+        height: auto; /* 子元素的定高 */
+        /* border: 3px solid black;*/
+        position: absolute; /* 设置子元素为绝对定位 */
+        top: 10%; /* 先把top和left设置为50% */
+        left: 49%;
+        margin: -100px 0 0 -200px; /*再根据子元素的宽高的一半，加负号，设置margin的top和left */
+
+    }
+
+    .box3 {
+        text-align: left;
+        width: 150px; /* 子元素的定宽 */
+        height: 250px; /* 子元素的定高 */
+        /*border: 3px solid black;*/
+        position: relative; /* 设置子元素为绝对定位 */
+        left: 30%;
+    }
+
+    .sh {
+        width: 800px; /* 子元素的定宽 */
+        height: 30px;
+        background-color: #f3f8fe;
+        top: 1%;
+        position: absolute;
+        text-align: left;
+    }
+
+    .fir {
+        color: #014d7f;
+        font-size: 15px;
+        position: absolute;
+        left: 3%;
+        top: 7%;
+    }
+</style>
+<div class="head"
+     style="padding-top: 15px; padding-left:10px;text-align:center;margin: 0 ;width: 100%; height: 50px;background-color: #ff4503">
+
+    <img src="../static/logo.png">
+    <label>
+        <a href="" style="padding-left: 200px;color: white">首页</a>
+        <a href="" style="padding-left: 100px;color: white">账户设置 </a>
+        <input>
+        <button type="button">搜索</button>
+    </label>
+</div>
+<div class="box">
+    <div class="box3">
+        <a style="color: #ff4503 ;font-size: 18px">
+            账号管理
+        </a>
+        <br><a style="font-size: 12px">安全设置</a>
+        <br><a style="font-size: 12px">个人资料</a>
+        <br><a style="font-size: 12px">个人成长信息</a>
+        <br><a style="font-size: 12px">支付宝绑定设置</a>
+        <br><a style="font-size: 12px">微博绑定设置</a>
+        <br><a style="font-size: 12px">个人交易信息</a>
+        <br><a style="font-size: 12px">收货地址</a>
+        <br><a style="font-size: 12px">旺旺网页版设置</a>
+        <br><a style="font-size: 12px">应用授权</a>
+
+
+    </div>
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-xs" id="LAY-component-form-setval" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    </script>
+    <div class="box1">
+        <div class="sh">
+            <span class="fir">收货地址</span></div>
+        <div>
+            <br>
+            <br>
+            <br>
+            <div style="position: relative; top: 20%">
+                <form class="layui-form" action="" lay-filter="example">
+                    <input type="text" id="tableid" name="id" style="display: none" placeholder=0>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">地址信息:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="address" required lay-verify="required" placeholder="请输入地址"
+                                   autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">详细地址:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="detailedAddress" required lay-verify="required"
+                                   placeholder="请输入详细地址"
+                                   autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">邮政编码:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="postalCode" required lay-verify="required" placeholder="请输入邮政编码"
+                                   autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">收货人:</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="username" required lay-verify="required" placeholder="请输入姓名"
+                                   autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">手机号码:</label>
+                        <div class="layui-input-block">
+                            <select name="prefixPhoneNumber" lay-verify="required">
+                                <option value=""></option>
+                                <option value="0">中国大陆+86</option>
+                                <option value="1">中国香港+852</option>
+                            </select>
+                            <input type="text" name="phoneNumber" required lay-verify="required" placeholder="请输入手机号码"
+                                   autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <input type="checkbox" name="defaultShippingAddress" title="设置为默认收货地址" lay-skin="primary">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn layui-btn-xs" lay-submit lay-filter="formDemo">保存</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <br>
+            <br>
+            <br>
+            <table id="demo" lay-filter="test"></table>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="../static/layui/layui.js"></script>
+<script>
+
+    function setMoRen(d) {
+        //根据id设置为默认地址
+        $.ajax(
+            {
+                url: "http://localhost:8081/reSetAddr" + '?id=' + d
+                , type: "GET"
+                , cache: false
+                , dataType: "json"
+                , contentType: 'application/json;charset=utf-8'
+                , success: function (data) {
+                    window.location.reload();
+                }
+                , error: function (err) {
+                }
+            });
+    }
+
+    layui.use(['form', 'util', 'laydate', 'table'], function () {
+        var form = layui.form;
+        var table = layui.table;
+
+        //提交
+        form.on('submit(formDemo)', function (data) {
+            var predata = JSON.stringify(data.field);
+            $('#tableid').val('')
+            $.ajax(
+                {
+                    url: "http://localhost:8081/updOrShdzById"
+                    , type: "POST"
+                    , data: predata
+                    , cache: false
+                    , dataType: "json"
+                    , contentType: 'application/json;charset=utf-8'
+                    , success: function (data) {
+                        table.reload("demo")
+                        //window.location.reload();
+                    }
+                    , error: function (err) {
+                    }
+                });
+
+
+            return false;
+        });
+        table.render({
+            elem: '#demo'
+            , url: 'getShdzDataList'
+            , page: true //开启分页
+            , cols: [
+                [
+                    {field: 'username', title: '收货人'}
+                    , {field: 'id', title: 'id', hide: true}
+                    , {field: 'address', title: '所在地区'}
+                    , {field: 'detailedAddress', title: '所在地区'}
+                    , {field: 'postalCode', title: '邮编'}
+                    , {field: 'prefixPhoneNumber', title: '电话前缀', hide: true}
+                    , {
+                    field: 'phoneNumber', title: '电话/手机', width: 80, templet: function (d) {
+                        if (d.prefixPhoneNumber === '0') {
+                            return '+86 ' + d.phoneNumber;
+                        } else {
+                            return '+852 ' + d.phoneNumber;
+                        }
+                    }
+                }
+
+                    , {field: 'defaultShippingAddress', title: '', templet: function (d) {
+                        if (d.defaultShippingAddress === '0') {
+                            return '<div><a onclick="setMoRen(' + d.id + ')" class="layui-table-link">设为默认</a></div>'
+                        } else {
+                            return '<span style="color: #c00;">' + "默认地址" + '</span>'
+                        }
+                    }
+                } , {fixed: 'right', title: '操作', toolbar: '#barDemo'}
+                ]
+            ]
+        });
+        table.on('tool(test)', function (obj) { // 注：test 是 table 原始标签的属性 lay-filter="对应的值"
+            var data = obj.data; //获得当前行数据
+            var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+            if (layEvent === 'del') { //删除
+                obj.del(); // 删除对应行（tr）的 DOM 结构，并更新缓存
+                $.ajax(
+                    {
+                        url: "http://localhost:8081/delShdzById" + "?id=" + data.id
+                        , type: "GET"
+                        , cache: false
+                        , dataType: "json"
+                        , contentType: 'application/json;charset=utf-8'
+                        , success: function (data) {
+                            console.log(data)
+                            table.reload("demo")
+                        }
+                        , error: function (err) {
+                        }
+                    });
+
+
+            } else if (layEvent === 'edit') { //编辑
+                form.val('example', data);
+            }
+        });
+    });
+</script>
+</html>
